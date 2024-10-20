@@ -11,7 +11,7 @@ class Service(models.Model):
 class Review(models.Model):
     name = models.CharField(max_length=255 )
     comment = models.TextField()
-    stars = models.IntegerField()
+    stars = models.PositiveIntegerField()
     status = models.BooleanField(default=False)
 
     def __str__(self):
@@ -27,3 +27,14 @@ class About(models.Model):
 class Gallery(models.Model):
     image = models.ImageField(upload_to='gallery/')
     date_upload = models.DateTimeField(auto_now_add=True)
+
+class Barber(models.Model):
+    name = models.CharField(max_length=255)
+    experience = models.PositiveIntegerField()
+    description = models.TextField()
+    image = models.ImageField(upload_to='barbers/')
+    age = models.PositiveIntegerField()
+
+    def __str__(self):
+        return self.name
+    

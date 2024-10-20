@@ -1,17 +1,12 @@
-from django.urls import path, include
+from django.urls import path
 from . import views
-from rest_framework import routers
-
 
 app_name = 'barber'
 
-router = routers.DefaultRouter()
-router.register('reviews', views.ReviewViewSet),
-router.register('banners', views.BannerViewSet),
-router.register('about', views.AboutViewSet),
-router.register('gallery', views.GalleryViewSet),
-
-
 urlpatterns = [
-    path('', include(router.urls)),
+    path('reviews/', views.get_review),
+    path('about/', views.get_about),
+    path('banner/', views.get_banner),
+    path('gallery/', views.get_gallery),
+    path('barber/', views.get_barber),
 ]
